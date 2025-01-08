@@ -11,7 +11,7 @@ public class ParsingUsingJsonNode {
         JsonNode jsonNode = JsonUtils.readJsonFile(filePath);
         /* 1.Retrieve the city of the company's location*/
         String cityName = jsonNode.get("company").get("location").get("city").asText();
-        System.out.println(cityName);
+        System.out.println("1."+cityName);
         /*2.Get the head of the "Engineering" department*/
         JsonNode departments =  jsonNode.get("company").get("departments");
         for(JsonNode department:departments)
@@ -19,7 +19,7 @@ public class ParsingUsingJsonNode {
            String departmentName = department.get("name").asText();
            if(departmentName.equalsIgnoreCase("Engineering"))
            {
-               System.out.println(department.get("head").asText());
+               System.out.println("2."+department.get("head").asText());
            }
         }
         /*3.Extract the lead of the "Frontend" team.*/
@@ -31,7 +31,7 @@ public class ParsingUsingJsonNode {
                 String teamName = team.get("name").asText();
                 if(teamName.equalsIgnoreCase("Frontend"))
                 {
-                    System.out.println(team.get("lead").asText());
+                    System.out.println("3."+team.get("lead").asText());
                 }
             }
         }
@@ -50,7 +50,7 @@ public class ParsingUsingJsonNode {
                        JsonNode skills = member.get("skills");
                        for(JsonNode skill :skills)
                        {
-                           System.out.println(skill.asText());
+                           System.out.println("4."+skill.asText());
                        }
                    }
                }
